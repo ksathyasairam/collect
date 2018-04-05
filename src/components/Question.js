@@ -30,10 +30,23 @@ class Question extends React.Component{
 
 	handleChange(text){
 
+		this.setState({
+
+			hint: text,
+
+		});
+
 		var id = this.props.id;
 		this.props.updateQuestion(id,text);
 	}
 
+
+	componentWillReceiveProps(nextProps) {
+   
+     if (nextProps.val !== this.state.hint) {
+    this.setState({ hint: nextProps.val });
+  }
+}
 	handleDelete(){
 
 
