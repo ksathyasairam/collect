@@ -63,6 +63,24 @@ class CreateForm extends React.Component{
 
 	}
 
+	deleteQuestion(id){
+
+		var questionListTemp= this.state.questionList;
+
+		var index = questionListTemp.findIndex(q => q.qid===id);
+
+
+		var temp = questionListTemp.splice(index,1);
+
+		//alert( id  + "deleteQuestion CreateForm" +index + JSON.stringify(temp) + JSON.stringify(questionListTemp));
+
+
+		this.setState({
+			questionList: questionListTemp
+
+		});
+	}
+
 
 	updateFormName(text){
 
@@ -93,7 +111,7 @@ class CreateForm extends React.Component{
 
 							(ques) => {
 
-								return <div> <Question id={ques.qid} val={ques.question} updateQuestion={this.updateQuestion.bind(this)} /></div>;
+								return <div> <Question id={ques.qid} val={ques.question}  deleteQuestion= {this.deleteQuestion.bind(this)} updateQuestion={this.updateQuestion.bind(this)} /></div>;
 									
 								
 							}
@@ -105,7 +123,7 @@ class CreateForm extends React.Component{
 	}
 
 	render(){
-
+		
 		return(
 
 				<div>

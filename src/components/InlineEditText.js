@@ -13,9 +13,9 @@ class InlineEditText extends React.Component{
 
 			text: this.props.hint,
 			editing: this.props.editing,
-
+			showdelete: this.props.showdelete,
 		
-		}
+		};
 
 	}
 
@@ -52,21 +52,32 @@ class InlineEditText extends React.Component{
 			editing:false
 		});
 	}
+	handleClickDelete(){
+
+		this.props.ondelete();
+
+
+		
+	}
 
 
 	displayTextOrEditField(){
 
+		const deleteButton = this.state.showdelete? <button onClick= {this.handleClickDelete.bind(this)}> Delete </button> : null;
+
 		if(this.state.editing){
 			return <div>
-					<input onChange= {this.handleChange.bind(this)} value= {this.state.text} />
+					<input onChange= {this.handleChange.bind(this)} value= {this.state.text} placeholder= {this.props.hint} />
 					<button onClick= {this.handleClickDone.bind(this)}>Done</button>
 					</div>
 		}
 		else{
-			return <div onClick= {this.handleClickText.bind(this)}>
-					<h4> {this.state.text}</h4>
+			return <div>
+					<div onClick= {this.handleClickText.bind(this)}>
+					<h4>{this.state.text}</h4> 
+					</div>
 
-					
+					{deleteButton}
 					</div>
 		}
 
@@ -74,6 +85,7 @@ class InlineEditText extends React.Component{
 	}
 
 	render(){
+
 
 		return(
 
