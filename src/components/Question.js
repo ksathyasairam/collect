@@ -60,6 +60,7 @@ class Question extends React.Component{
 
 	render(){
 	//	alert("render");
+	console.log("CreateForm Reder");
 		return(
 
 		<div >

@@ -19,12 +19,7 @@ class InlineEditText extends React.Component{
 
 	}
 
-componentWillReceiveProps(nextProps) {
-   
-     if (nextProps.hint !== this.state.text) {
-    this.setState({ text: nextProps.hint });
-  }
-}
+
 	handleChange(e){
 
 		//alert("handleChange");
@@ -90,6 +85,7 @@ componentWillReceiveProps(nextProps) {
 	}
 
 	render(){
+	console.log("Question Reder");
 
 
 		return(
