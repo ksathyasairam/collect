@@ -148,8 +148,10 @@ class CreateForm extends React.Component{
 						<br/>
 						<br/>
 						<div>
-
+							
 							<button onClick= {this.handleClickCreateForm.bind(this)}> Create Form </button>
+							
+							
 
 						</div>
 
